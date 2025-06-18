@@ -3,14 +3,12 @@ import numpy as np
 from PIL import Image
 import tensorflow as tf
 
-# Cargar modelo
 @st.cache_resource
 def load_model():
     return tf.keras.models.load_model('models/mini_alexnet_model.h5')
 
 model = load_model()
 
-# Función de predicción
 def predict(image):
     img = image.resize((224, 224))
     img_array = np.array(img) / 255.0
@@ -19,7 +17,6 @@ def predict(image):
     class_names = ['Cat', 'Dog', 'Wild']
     return class_names[np.argmax(prediction)], np.max(prediction)
 
-# Interfaz de Streamlit
 st.title("Clasificador de Caras de Animales")
 st.write("Sube una imagen para clasificar si es un gato, perro o animal salvaje.")
 
