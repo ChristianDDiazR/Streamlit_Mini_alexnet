@@ -1,22 +1,52 @@
-# 🌿 Clasificador de Hojas con Mini-AlexNet y Streamlit
+🐾 Proyecto Mini-AlexNet con Streamlit
+Clasificación de imágenes en gato, perro o animal salvaje usando un modelo CNN inspirado en AlexNet y una aplicación web con Streamlit.
 
-Este proyecto implementa una red neuronal convolucional inspirada en **Mini-AlexNet** para clasificar imágenes de hojas. Se utiliza una interfaz con **Streamlit** que permite al usuario subir una imagen y obtener la predicción de la especie de la hoja con su respectiva confianza.
+📁 Estructura del Proyecto
+bash
 
-## 📁 Archivos del proyecto
 
-Debido al tamaño de los archivos, solo se incluyen en este repositorio:
+1
+2
+3
+4
+5
+6
+7
+animal_faces_project/
+├── data/               # (No se sube al repo, ~1GB+)  
+│   └── afhq/           # Dataset AFHQ (descargar desde Kaggle)  
+├── models/             # (No se sube al repo)  
+│   └── mini_alexnet_model.h5  # Modelo entrenado  
+├── app.py              # Aplicación Streamlit  
+└── train.py            # Entrenamiento del modelo  
+🛠️ Requisitos
+Python 3.8+
+Librerías:
+bash
 
-- `train.py`: Script para entrenar y guardar el modelo.
-- `app.py`: Aplicación de Streamlit para cargar imágenes y mostrar predicciones.
 
-## 🔗 Enlaces importantes
+1
+pip install tensorflow streamlit numpy matplotlib scikit-learn
+Dataset: Animal Faces (AFHQ) (descargar y organizar como se muestra en la estructura).
+▶️ Uso
+Entrenar el modelo :
+bash
 
-- 📦 [Descargar dataset "Leaf Species Classification"](https://www.kaggle.com/competitions/leaf-classification/data)
-- 💾 [Descargar modelo entrenado desde Google Drive](https://drive.google.com/your-model-link)
 
-## ⚙️ Requisitos
+1
+python train.py
+Genera models/mini_alexnet_model.h5.
+Ejecutar la aplicación :
+bash
 
-Instala las dependencias necesarias con:
 
-```bash
-pip install -r requirements.txt
+1
+streamlit run app.py
+📊 Métricas
+Accuracy en validación
+Matriz de confusión
+Reporte de clasificación (precision, recall, f1-score)
+⚠️ Notas
+El dataset y el modelo guardado no se incluyen en el repositorio por su tamaño.
+Asegúrate de tener GPU disponible para acelerar el entrenamiento.
+Las imágenes deben estar en formato JPG/PNG y redimensionadas a 224x224 píxeles.
