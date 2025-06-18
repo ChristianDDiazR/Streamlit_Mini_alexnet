@@ -19,7 +19,7 @@ Debido al tamaño de los archivos, solo se incluyen en este repositorio:
 Instala las dependencias necesarias con:
 
 ```bash
-pip install -r requirements.txt
+pip install tensorflow streamlit numpy matplotlib scikit-learn
 ```
 
 Si se desea entrenar el modelo el comando es el siguiente
